@@ -1,0 +1,57 @@
+---
+title: "Regression lineaire"
+author: "Anne Tarra OBEI"
+date: "2022-12-10"
+output:
+  html_document: 
+    df_print: paged
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Importons les donnees
+
+```{r Importation}
+Donnees<-read.csv("CreditBancaire.csv") #importation dans R du jeux de donnees
+Donnees
+```
+
+## realisons la regression du nombre de jours de retards sur les variables credit et type
+
+```{r Regression}
+regression<-lm(Jours~Type+Credit, data<-Donnees) #regression du nombre de jours de retard sur les variables credit et type
+regression
+```
+
+## Affichons les resultats de la regression
+
+```{r Resultat}
+resultat<-summary(lm(Jours~Type+Credit, data<-Donnees)) # affichage des resultats detailles de la regression
+resultat
+resultat1<-data.frame(resultat$coefficients[,c(1,3,4)]) # affichage du tableau des coefficients, des statistiques de Student et des probabilités
+resultat1
+resultat2<-data.frame(resultat$coefficients[,c(1,3)]) # affichage du tableau des coefficients et des statistiques de Student
+resultat2
+```
+
+## realisons le graphique en nuage de points de la regression
+
+```{r pressure, echo=FALSE}
+plot(Jours~Credit, data<-Donnees)
+abline(regression)
+```
+
+## creons la fonction de la regression de la variable y sur x 
+
+```{r Fonction}
+Fonction<-function(data){
+  matrix_coef<- summary(lm(y ~ .,data=data))
+  matrix_estimates<- matrix_coef$coefficients[,1]
+  matrix_tvalue<- matrix_coef$coefficients[,3]
+  return(data.frame(matrix_estimates,matrix_tvalue))
+}
+```
+

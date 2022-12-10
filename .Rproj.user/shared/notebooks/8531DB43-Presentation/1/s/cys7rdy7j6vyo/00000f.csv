@@ -1,0 +1,1 @@
+"0","regression<-lm(Jours~Type+Credit, data<-Donnees) #regression du nombre de jours de retard sur les variables credit et type"

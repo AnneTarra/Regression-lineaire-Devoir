@@ -1,0 +1,6 @@
+"0","Fonction<-function(data){"
+"0","  matrix_coef<- summary(lm(y ~ .,data=data))"
+"0","  matrix_estimates<- matrix_coef$coefficients[,1]"
+"0","  matrix_tvalue<- matrix_coef$coefficients[,3]"
+"0","  return(data.frame(matrix_estimates,matrix_tvalue))"
+"0","}"

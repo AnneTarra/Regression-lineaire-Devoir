@@ -1,0 +1,27 @@
+"0","regression
+"
+"1","
+Call:
+"
+"1",""
+"1","lm(formula = Jours ~ Type + Credit, data = data <- Donnees)"
+"1",""
+"1","
+
+"
+"1","Coefficients:
+"
+"1","     (Intercept)  "
+"1","TypeConsommation  "
+"1","  TypeProduction  "
+"1","          Credit  "
+"1","
+"
+"1","       8.519e+01  "
+"1","      -1.486e+01  "
+"1","       1.498e+01  "
+"1","      -5.484e-06  "
+"1","
+"
+"1","
+"
